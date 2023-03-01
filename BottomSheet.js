@@ -61,7 +61,7 @@ const BottomSheet = () => {
 
     .onEnd((event) => {
       // when the swipe is down the event velocity is positive
-      // on pan gesture end check if the translationY.value is less than MAX_TRANSLATE_Y
+      // on pan gesture end check if the translationY.value is greater than MAX_TRANSLATE_Y
 
       if (translationY.value > MAX_TRANSLATE_Y && event.velocityY > 0) {
         translationY.value = withSpring(MIN_TRANSLATE_Y, {
@@ -71,7 +71,7 @@ const BottomSheet = () => {
       }
 
       // when the swipe is up the event velocity is negative
-      // on pan gesture end check if the translationY.value is greater than MAX_TRANSLATE_Y
+      // on pan gesture end check if the translationY.value is less than MIN_TRANSLATE_Y
       if (translationY.value < MIN_TRANSLATE_Y && event.velocityY - 30 < 0) {
         translationY.value = withSpring(MAX_TRANSLATE_Y, { damping: 30 });
         borderRadius.value = withTiming(0);
